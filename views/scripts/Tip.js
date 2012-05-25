@@ -175,25 +175,44 @@ var Tip = Class.extend({
         }
                 
         // Keep the tip in the window by changing the anchor if necessary
+        
         switch(this.options.targetCorner) {
             case 'bottomMiddle':
                 tipWrapperTop = tipWrapperTop + targetHeight;
                 tipWrapperLeft = tipWrapperLeft + (targetWidth / 2);
                 break;
+            case 'topMiddle':
+                tipWrapperLeft = tipWrapperLeft - (targetWidth / 2);
+                break;
             case 'bottomLeft':
                 tipWrapperTop = tipWrapperTop + targetHeight;
                 break;
+            case 'rightMiddle':
+                tipWrapperTop = tipWrapperTop + (targetHeight / 2);
+                tipWrapperLeft = tipWrapperLeft + targetWidth;
+                break;
+                
             default:
                 break;
         }
         
         // Set the tip position relative to the anchor
+        
         switch(this.options.tipCorner) {
             case 'topLeft':
                 break;
             case 'topRight':
                 tipWrapperLeft = tipWrapperLeft - tipWrapperWidth;
-                break;                
+                break;         
+            case 'bottomMiddle':
+                tipWrapperTop = tipWrapperTop - tipWrapperHeight;
+                tipWrapperLeft = tipWrapperLeft - (tipWrapperWidth / 2);
+              //  console.log(tipWrapperLeft, tipWrapperTop)
+                break;         
+            case 'leftMiddle':
+                tipWrapperTop = tipWrapperTop - (tipWrapperHeight / 2);
+                break;
+                
             default:
                 break;
         }

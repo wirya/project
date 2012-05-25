@@ -437,7 +437,7 @@ class ModelDriverMySql extends ModelDriver {
             }
             $orderByDescendingString = String::replaceLast(', ', '', $orderByDescendingString);
         }
-
+        
         // handle the limit clause
         $limitString = '';
         if($selectorProperties['limit'] != null) {
@@ -475,6 +475,11 @@ class ModelDriverMySql extends ModelDriver {
             else {
                 $sql .= ' ORDER BY '.$orderByDescendingString.' DESC';
             }
+        }
+        
+        // Handle random
+        if($selectorProperties['orderByRandom']) {
+            $sql .= ' ORDER BY RAND()';
         }
 
         // add limit

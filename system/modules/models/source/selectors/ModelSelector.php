@@ -66,6 +66,12 @@ class ModelSelector extends Selector {
      * @var array
      */
     protected $orderByDescending;
+    
+    /**
+     *
+     * @var boolean
+     */
+    protected $orderByRandom;
 
     /**
      * Instantiates a new instance of a Selector.
@@ -340,6 +346,16 @@ class ModelSelector extends Selector {
         }
         return $this;
     }
+    
+    /**
+     *
+     * @return ModelSelector
+     */
+    public function orderByRandom($boolean = true) {
+        $this->orderByRandom = $boolean;
+        
+        return $this;
+    }
 
     /**
      *
@@ -459,6 +475,7 @@ class ModelSelector extends Selector {
         $array['tableArray'] = &$this->tableQueue;
         $array['orderByAscending'] = &$this->orderByAscending;
         $array['orderByDescending'] = &$this->orderByDescending;
+        $array['orderByRandom'] = &$this->orderByRandom;
         $array['limit'] = &$this->limit;
         $array['isDistinct'] = &$this->isDistinct;
         $array['isCount'] = &$this->isCount;
