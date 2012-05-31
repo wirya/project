@@ -1,6 +1,10 @@
 <?php
 
 class Number {
+    
+    public static function random($minimum, $maximum) {
+        return rand($minimum, $maximum);
+    }
 
     static function integerValue($string) {
         return intval($string);
@@ -8,6 +12,10 @@ class Number {
 
     static function format($number, $precision = null) {
         return number_format($number, $precision);
+    }
+    
+    static function formatPercent($number, $precision = null) {
+        return number_format($number * 100, $precision).'%';
     }
     
     static function shiftDecimalLeft($number, $decimalPlaces) {
