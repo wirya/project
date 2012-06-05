@@ -48,6 +48,7 @@ class HtmlElement {
     function h6($options = array()) { if(!is_array($options)) $options = array('text' => $options); return new HtmlElement('h6', $options); }
     function p($options = array()) { if(!is_array($options)) $options = array('text' => $options); return new HtmlElement('p', $options); }
     function a($options = array()) { if(!is_array($options)) $options = array('text' => $options); return new HtmlElement('a', $options); }
+    function button($options = array()) { if(!is_array($options)) $options = array('text' => $options); return new HtmlElement('button', $options); }
     function ul($options = array()) { if(!is_array($options)) $options = array('text' => $options); return new HtmlElement('ul', $options); }
     function ol($options = array()) { if(!is_array($options)) $options = array('text' => $options); return new HtmlElement('ol', $options); }
     function li($options = array()) { if(!is_array($options)) $options = array('text' => $options); return new HtmlElement('li', $options); }
