@@ -10,9 +10,9 @@ class HtmlDocument extends HtmlElement {
     public $javaScriptOnReady = array();
 
     function HtmlDocument($attributes = array(), $docType = null) {
-        parent::HtmlElement('html');
+        parent::HtmlElement('html', $attributes);
         $this->docType = $docType;
-
+        
         $this->head = new HtmlElement('head');
         $this->append($this->head);
 

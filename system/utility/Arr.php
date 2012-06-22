@@ -1,5 +1,12 @@
 <?php
 class Arr {
+    
+    static function shuffle($array) {
+        $shuffledArray = $array;
+        shuffle($shuffledArray);
+        
+        return $shuffledArray;
+    }
 
     static function unique($array) {
         return array_unique($array);

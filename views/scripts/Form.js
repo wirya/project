@@ -901,7 +901,7 @@ scrollToPage: function(formPageId, options) {
                 self.control.find('.formScrollToNotification').html(currentFormPage.options.onScrollAway.notificationHtml);
             }
             else {
-                self.control.append('<li class="formScrollToNotification">'+currentFormPage.options.onScrollAway.notificationHtml+'<li>');
+                self.control.append('<li class="formScrollToNotification">'+currentFormPage.options.onScrollAway.notificationHtml+'</li>');
             }   
         }
         var onScrollAwayOnBefore = currentFormPage.options.onScrollAway.onBefore(direction, formPageId);
@@ -1240,7 +1240,7 @@ submitForm: function(event) {
     formClone.append(formView);
     var formViewData = $('<input type="hidden" name="viewData" value="'+$('#'+this.id+'-viewData').val()+'" />');
     formClone.append(formViewData);
-    var formData = $('<input type="hidden" name="formData" />').attr('value', encodeURI(Json.encode(this.getData()))); // Set all non-file values in one form object
+    var formData = $('<input type="hidden" name="formData" />').attr('value', encodeURIComponent(Json.encode(this.getData()))); // Set all non-file values in one form object
     formClone.append(formData);
         
     // Add any file components for submission
