@@ -179,6 +179,48 @@ class HtmlElement {
 
         return $this;
     }
+    
+    function findElement($type = 'div', $attr = null, $value = null, $multiple = false, $remove = false) {
+        $result = $multiple ? array() : null;
+        
+        if(is_array($this->content)) {
+            foreach($this->content as $key => $element) {
+                if(is_object($element)) {
+                    if((!is_null($type) && !is_null($attr) && !is_null($value) && $type === $element->type && $element->attr($attr) === $value) ||
+                        (!is_null($type) && is_null($attr) && is_null($value) && $type === $element->type) ||
+                        (!is_null($attr) && !is_null($value) && is_null($type) && $element->attr($attr) === $value)) {
+                        
+                        $newResult = $this->content[$key];
+                        if($remove) {
+                            unset($this->content[$key]);
+                        }
+                        if($multiple) {
+                            $result[] = $newResult;
+                        }
+                        else {
+                            $result = $newResult;
+                            break;
+                        }
+                        
+                    }
+                    else {
+                        $newResult = $element->findElement($type, $attr, $value, $multiple, $remove);
+                        if($multiple) {
+                            $result = array_merge($result, $newResult);
+                        }
+                        else {
+                            if(!is_null($newResult)) {
+                                $result = $newResult;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        return $result;
+    }
 
     function find($selector) {
         
