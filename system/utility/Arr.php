@@ -1,6 +1,11 @@
 <?php
 class Arr {
     
+    static function random($array) {
+        $array = array_values($array);
+        return $array[rand(0,count($array)-1)];
+    }
+    
     static function shuffle($array) {
         $shuffledArray = $array;
         shuffle($shuffledArray);
