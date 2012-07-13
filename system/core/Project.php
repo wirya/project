@@ -169,6 +169,11 @@ class Project {
         else {
             Project::setSettings(array());
         }
+        
+        // Turn off error reporting for production configurations
+        if(Project::getInstanceType() == 'Production') {
+            error_reporting(0);
+        }
 
         // Redirect to instance setup if necessary
         Project::setupInstance();

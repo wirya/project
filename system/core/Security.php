@@ -4,11 +4,6 @@ class Security {
     public $response;
 
     function Security($route, $request) {
-        // Turn off error reporting for production configurations
-        if(Project::getInstanceType() == 'Production') {
-            error_reporting(0);
-        }
-        
         // VERIFY ROUTE PERMISSIONS
 
         //Identifies what the data is and encodes it appropriately (JSON, arrays, files, sessions, cookies, etc)
