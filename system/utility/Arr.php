@@ -94,6 +94,15 @@ class Arr {
     static function shift(&$array) {
         return array_shift($array);
     }
+    
+    static function secondToLast($array) {
+        if(!isset($array[Arr::size($array) - 2])) {
+            return null;
+        }
+        else {
+            return $array[Arr::size($array) - 2];   
+        }
+    }
 
     static function last($array) {
         if(!isset($array[Arr::size($array) - 1])) {

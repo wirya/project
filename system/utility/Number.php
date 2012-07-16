@@ -31,11 +31,16 @@ class Number {
     }
 
     static function formatMoney($number, $precision = 0, $format = '$%i') {
-        // Need to code for precision here
-
         $number = String::replace(',', '', $number);
-
-        return money_format($format, $number);
+        
+        // Need to code for precision here
+        if($number < 0) {
+            return '-$'.Number::addCommas(Number::format($number * -1, $precision));
+        }
+        else {
+            
+            return money_format($format, $number);    
+        }
     }
 
     static function usDollars($number, $precision = 0) {
@@ -47,7 +52,12 @@ class Number {
     }
 
     static function addCommas($number) {
-        return number_format($number);
+        if($number < 1000) {
+            return $number;
+        }
+        else {
+            return number_format($number);
+        }
     }
 
     static function round($number, $precision = null) {
