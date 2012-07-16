@@ -9,6 +9,10 @@ class Number {
     static function integerValue($string) {
         return intval($string);
     }
+    
+    static function floatValue($string) {
+        return floatval($string);
+    }
 
     static function format($number, $precision = null) {
         return number_format($number, $precision);
