@@ -249,10 +249,13 @@ class '.$this->modelName.' extends Model {
      */
     public function __construct() {
         if(func_num_args() == 2) {
-            parent::__construct('.$modelName.'::Model, '.$modelName.'::Table, '.$modelName.'::PrimaryKey, func_get_arg(0), func_get_arg(1));
+            $arg0 = func_get_arg(0);
+            $arg1 = func_get_arg(1);
+            parent::__construct('.$modelName.'::Model, '.$modelName.'::Table, '.$modelName.'::PrimaryKey, $arg0, $arg1);
         }
         else if(func_num_args() == 1) {
-            parent::__construct('.$modelName.'::Model, '.$modelName.'::Table, '.$modelName.'::PrimaryKey, func_get_arg(0), array());
+            $arg0 = func_get_arg(0);
+            parent::__construct('.$modelName.'::Model, '.$modelName.'::Table, '.$modelName.'::PrimaryKey, $arg0, array());
         }
         else {
             parent::__construct('.$modelName.'::Model, '.$modelName.'::Table, '.$modelName.'::PrimaryKey, array(), array());
