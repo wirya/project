@@ -58,6 +58,10 @@ class Time {
         if(!Number::isInteger($time)) {
             $time = strtotime($time);
         }
+        
+        if($time == 0) {
+            return 'never';
+        }
 
         // array of time period chunks
         $chunks = array(
