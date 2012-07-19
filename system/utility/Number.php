@@ -38,8 +38,8 @@ class Number {
             return '-$'.Number::addCommas(Number::format($number * -1, $precision));
         }
         else {
-            
-            return money_format($format, $number);    
+            return '$'.Number::addCommas(Number::format($number, $precision));
+            //return money_format($format, $number);    
         }
     }
 
