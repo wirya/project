@@ -57,6 +57,12 @@ class Time {
         return $formattedTime;
     }
     
+    public static function weekBegin($time = 'now', $format = TimeFormat::UnixTimeInSeconds) {
+        $date = String::time('Sunday last week');
+        
+        return Time::format($date, $format);
+    }    
+    
     public static function monthBegin($time = 'now', $format = TimeFormat::UnixTimeInSeconds) {
         $date = date('m/d/Y', String::time(date('m').'/01/'.date('Y').' 00:00:00'));
         
