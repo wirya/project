@@ -1,4 +1,13 @@
 <?php
+class TimeFormat {
+
+    const UnixTimeInSeconds = 'unixTimeInSeconds';
+    const UnixTimeInMilliseconds = 'unixTimeInMilliseconds';
+    const MySqlDateTime = 'mySqlDateTime';
+    const DayNameMonthNameDayYear = 'dayNameMonthNameDayYear';
+    
+}
+
 class Time {
 
     public static $minuteInSeconds = 60;
@@ -6,13 +15,94 @@ class Time {
     public static $dayInSeconds = 86400;
     public static $weekInSeconds = 604800;
 
-    public static function nowInSeconds() {
-        return time();
+    public static function now($format = TimeFormat::UnixTimeInSeconds) {
+        if($format == TimeFormat::UnixTimeInSeconds) {
+            $time = time();
+        }
+        else if($format == TimeFormat::UnixTimeInMilliseconds) {
+            $time = time() * 1000;
+        }
+        
+        return $time;
+    }
+        
+    public static function quarter($time = null, $monthNumber = null) {
+        if($monthNumber == null) {
+            if($time == null) {
+                $monthNumber = date('n');
+            }
+            else {
+                $monthNumber = date('n', String::time($time));
+            }
+            
+        }
+        //echo 'Month number: '.$monthNumber; exit();
+        
+        return floor(($monthNumber - 1) / 3) + 1;
+    }
+    
+    public static function format($time, $format) {
+        if($format == TimeFormat::UnixTimeInSeconds) {
+            $formattedTime = String::time($time);
+            //echo 'Unix time in seconds: '.$time;
+        }
+        else if($format == TimeFormat::UnixTimeInMilliseconds) {
+            $formattedTime = String::time($time) * 1000;
+            //echo 'Unix time in milliseconds: '.$time;
+        }
+        else if($format == TimeFormat::DayNameMonthNameDayYear) {
+            $formattedTime = date('l, F j, Y', String::time($time));
+        }
+        
+        return $formattedTime;
+    }
+    
+    public static function monthBegin($time = 'now', $format = TimeFormat::UnixTimeInSeconds) {
+        $date = date('m/d/Y', String::time(date('m').'/01/'.date('Y').' 00:00:00'));
+        
+        return Time::format($date, $format);
+    }
+    
+    public static function monthEnd($time = 'now', $format = 'unixTimeInSeconds') {
+    }
+    
+    public static function quarterBegin($time = 'now', $format = 'unixTimeInSeconds') {
+        $currentQuarter = Time::quarter();
+        if($currentQuarter == 1) {
+            $quarterMonth = 1;
+        }
+        else if($currentQuarter == 2) {
+            $quarterMonth = 3;
+        }
+        else if($currentQuarter == 3) {
+            $quarterMonth = 6;
+        }
+        else if($currentQuarter == 4) {
+            $quarterMonth = 9;
+        }
+        
+        $date = date('m/d/Y', String::time($quarterMonth.'/01/'.date('Y').' 00:00:00'));
+        
+        return Time::format($date, $format);
+    }
+    
+    public static function quarterEnd($time = 'now', $format = 'unixTimeInSeconds') {
+        
+    }
+    
+    public static function yearBegin($time = 'now', $format = 'unixTimeInSeconds') {
+        $date = date('m/d/Y', String::time('01/01/'.date('Y').' 00:00:00'));
+        
+        return Time::format($date, $format);
     }
 
+    public static function yearEnd($time = 'now', $format = 'unixTimeInSeconds') {
+        
+    }
+    
     public static function dateTime($string = null) {
         if($string === null) {
-            $response = date('Y-m-d H:i:s', Time::nowInSeconds());
+            $response = date('Y-m-d H:i:s', Time::now());
         }
         else if(is_int($string)) {
             $response = date('Y-m-d H:i:s', $string);

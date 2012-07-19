@@ -111,6 +111,7 @@ class Project {
             'String' => Project::getProjectPath().'system/utility/String.php',
             'Json' => Project::getProjectPath().'system/utility/Json.php',
             'Statistics' => Project::getProjectPath().'system/utility/Statistics.php',
+            'TimeFormat' => Project::getProjectPath().'system/utility/Time.php',
             'Time' => Project::getProjectPath().'system/utility/Time.php',
             'Url' => Project::getProjectPath().'system/utility/Url.php',
             'WebRequest' => Project::getProjectPath().'system/utility/WebRequest.php',

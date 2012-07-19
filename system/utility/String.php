@@ -450,13 +450,20 @@ class String {
         return substr_count($search, $string);
     }
 
-    static function time($string) {
+    static function time($string, $format = TimeFormat::UnixTimeInSeconds) {
         if(Number::isInteger($string)) {
-            return $string;
+            $time = $string;
         }
         else {
-            return strtotime($string);    
+            if($format == TimeFormat::UnixTimeInSeconds) {
+                $time = strtotime($string);
+            }
+            else if($format == TimeFormat::UnixTimeInMilliseconds) {
+                $time = strtotime($string) * 1000;
+            }
         }
+        
+        return $time;
     }
 
     /**

@@ -98,6 +98,15 @@ class Number {
             return false;
         }
     }
+    
+    static function isFloat($value) {
+        if(is_float($value)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 
     static function greatestCommonDivisor($a, $b) {
         if($a == 0 || $b == 0) {

@@ -66,6 +66,43 @@ class Arr {
     static function filter($array) {
         return array_filter($array);
     }
+    
+    static function max($array) {
+        return max($array);
+    }
+    
+    static function min($array) {
+        return min($array);
+    }
+ 
+    static function median($array) {
+        $iCount = count($array);
+        if($iCount == 0) {
+            return null;
+        }
+
+        $middle_index = floor($iCount / 2);
+        sort($array, SORT_NUMERIC);
+        $median = $array[$middle_index]; // assume an odd # of items
+        // Handle the even case by averaging the middle 2 items
+        if($iCount % 2 == 0) {
+            $median = ($median + $array[$middle_index - 1]) / 2;
+        }
+        
+        return $median;
+    }
+
+    static function mean($array) {
+        return self::average($array);
+    }
+    
+    static function average($array) {
+        return Arr::sum($array) / Arr::size($array);
+    }
+    
+    static function sum($array) {
+        return array_sum($array);
+    }
 
     static function merge($arrayA, $arrayB) {
         return array_merge($arrayA, $arrayB);
@@ -97,7 +134,8 @@ class Arr {
     
     static function secondToLast($array) {
         if(!isset($array[Arr::size($array) - 2])) {
-            return null;
+            end($array);
+            return prev($array);
         }
         else {
             return $array[Arr::size($array) - 2];   
@@ -106,7 +144,7 @@ class Arr {
 
     static function last($array) {
         if(!isset($array[Arr::size($array) - 1])) {
-            return null;
+            return end($array);
         }
         else {
             return $array[Arr::size($array) - 1];   
