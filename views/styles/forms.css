@@ -12,14 +12,14 @@
 .form .formAlert { max-width: 100px; margin: 0 auto; padding: .25em 1em .5em 1em; text-align: center; font-weight: bold; background: #333; color:#FFF; font-size: .8em; }
 .form .formModalTransparency { position: absolute; z-index: 99999; width: 100%; height: 100%; left: 0; top: 0; filter: alpha(opacity: 50); -moz-opacity: .5; -khtml-opacity: .5; opacity: .5; background-color: #CCCCCC;}
 .form .formModalWrapper { position: absolute; z-index: 1000000; width: 100%; height: 100%; left: 0; top: 0; }
-.form .formModalWrapper .formModal { border: 1px solid red; background: #F2F2F2; overflow: auto; min-width: 300px; max-width: 500px; margin: 0 auto; font-size: .8em; -webkit-border-radius: 5px; -moz-border-radius: 5px; -moz-box-shadow: 2px 12px 30px #333; }
+.form .formModalWrapper .formModal { border: 1px solid red; background: #F2F2F2; overflow: auto; min-width: 300px; max-width: 500px; margin: 0 auto; font-size: .8em; -webkit-border-radius: 5px; border-radius: 5px; -moz-border-radius: 5px; -moz-box-shadow: 2px 12px 30px #333; }
 .form .formModalWrapper .formModal .formModalHeader { background: #AA231D; color: #FFF; font-size: 1.4em; padding: .1em .25em; }
-.form .formModalWrapper.formModalNotice .formModal { border: 1px solid #257AF8; background: #F2F2F2; overflow: auto; min-width: 300px; max-width: 500px; margin: 0 auto; font-size: .8em; -webkit-border-radius: 5px; -moz-border-radius: 5px; -moz-box-shadow: 2px 12px 30px #333; }
+.form .formModalWrapper.formModalNotice .formModal { border: 1px solid #257AF8; background: #F2F2F2; overflow: auto; min-width: 300px; max-width: 500px; margin: 0 auto; font-size: .8em; -webkit-border-radius: 5px; border-radius: 5px; -moz-border-radius: 5px; -moz-box-shadow: 2px 12px 30px #333; }
 .form .formModalWrapper.formModalNotice .formModal .formModalHeader { background: #257AF8; color: #FFF; font-size: 1.4em; padding: .1em .25em; }
-.form .formModalWrapper .formModal { border: 1px solid red; background: #F2F2F2; overflow: auto; min-width: 300px; max-width: 500px; margin: 0 auto; font-size: .8em; -webkit-border-radius: 5px; -moz-border-radius: 5px; -moz-box-shadow: 2px 12px 30px #333; }
+.form .formModalWrapper .formModal { border: 1px solid red; background: #F2F2F2; overflow: auto; min-width: 300px; max-width: 500px; margin: 0 auto; font-size: .8em; -webkit-border-radius: 5px; border-radius: 5px; -moz-border-radius: 5px; -moz-box-shadow: 2px 12px 30px #333; }
 .form .formModalWrapper .formModal .formModalContent { padding: .5em; background: #FFF; }
 .form .formModalWrapper .formModal .formModalFooter { border-top: 1px solid #CECECE; text-align: right; }
-.form .formModalWrapper .formModal .formModalFooter button { margin: .5em; font-size: 1em; background: #FFFFFF url(../project/images/forms/button-background.png) repeat-x scroll left center; border: 1px solid; border-color: #DEDEDE #BBBBBB #BFBFBF #DEDEDE; padding: .35em .45em; cursor: pointer; -moz-border-radius: 5px; -webkit-border-radius: 5px; }
+.form .formModalWrapper .formModal .formModalFooter button { margin: .5em; font-size: 1em; background: #FFFFFF url(../project/images/forms/button-background.png) repeat-x scroll left center; border: 1px solid; border-color: #DEDEDE #BBBBBB #BFBFBF #DEDEDE; padding: .35em .45em; cursor: pointer; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; }
 
 /* Page Navigator */
 .form .formPageNavigator { overflow: auto; }
@@ -38,23 +38,23 @@
 .form .formPageNavigatorTop .formPageNavigatorLinkActive .formNavigatorLinkPrefix { background: url(../project/images/forms/page-navigator-active.png) .3em 50% no-repeat; color: #000; font-weight: bold; }
 
 .form .formPageNavigatorRight { position: absolute; top: 0; right: 0; }
-.form .formPageNavigatorRight .formPageNavigatorLink { border: 1px solid #CCC; margin: 0 0 .25em 0; -webkit-border-radius: 5px; -moz-border-radius: 5px; }
+.form .formPageNavigatorRight .formPageNavigatorLink { border: 1px solid #CCC; margin: 0 0 .25em 0; -webkit-border-radius: 5px; border-radius: 5px; -moz-border-radius: 5px; }
 .form .formPageNavigatorRight .formPageNavigatorLinkUnlocked { padding: .25em .75em .25em 1.9em; background: url(../project/images/icons/dot-check-green.png) .3em 50% no-repeat; cursor: pointer; color: #2C8AEF; }
 .form .formPageNavigatorRight .formPageNavigatorLinkDisabled { padding: .25em .75em .25em .55em; color: #999; cursor: default; }
 .form .formPageNavigatorRight .formPageNavigatorLinkWarning { padding: .25em .75em .25em 1.9em; background: url(../project/images/icons/exclamation-dot-red.png) .3em 50% no-repeat; cursor: pointer; color: #2C8AEF; }
 .form .formPageNavigatorRight .formPageNavigator li.formPageNavigatorLinkActive { background-color: #DFEFFF; border: 1px solid #C2D7EF; }
 
 .form .formProgress {}
-.form .formProgressBar { background: #2C8AEF; border: 1px solid #006BDF; -moz-border-radius: 5px; width: 0; }
+.form .formProgressBar { background: #2C8AEF; border: 1px solid #006BDF; border-radius: 5px; -moz-border-radius: 5px; width: 0; }
 .form .formProgressBar p { text-align: center; color: #FFF; line-height: 2em; margin: 0; }
 
 /* Control */
 .form .formControl { clear: both; margin: .75em 0 0 0; padding: 0 0 1.5em 0; list-style: none; overflow: visible; height: 36px; }
 .form .formControl li { float: left; margin: 0 1em 0 0; position: relative; }
-.form .formControl li button { font-size: 1em; margin: 0 0 1em 0; background: #FFFFFF url(../project/images/forms/button-background.png) repeat-x scroll left center; border: 1px solid; border-color: #DEDEDE #BBBBBB #BFBFBF #DEDEDE; padding: .65em .75em; cursor: pointer; -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); -moz-border-radius: 5px; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); -webkit-border-radius: 5px; }
+.form .formControl li button { font-size: 1em; margin: 0 0 1em 0; background: #FFFFFF url(../project/images/forms/button-background.png) repeat-x scroll left center; border: 1px solid; border-color: #DEDEDE #BBBBBB #BFBFBF #DEDEDE; padding: .65em .75em; cursor: pointer; -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); border-radius: 5px; -moz-border-radius: 5px; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); -webkit-border-radius: 5px; }
 .form .formControl li button:hover { border-color: #2C8AEF; }
 .form .formControl li button:active { border-color: #7FBCFF; }
-.form .formControl .formFailureNotice { background: url(../project/images/icons/exclamation-dot-red.png) no-repeat .5em 50%; padding: .25em .75em .25em 2em; background-color: #FFDFE0; border: 1px solid #EFC2C4; -moz-border-radius: 5px; -webkit-border-radius: 5px;  }
+.form .formControl .formFailureNotice { background: url(../project/images/icons/exclamation-dot-red.png) no-repeat .5em 50%; padding: .25em .75em .25em 2em; background-color: #FFDFE0; border: 1px solid #EFC2C4; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;  }
 .form .formControl .processingLi { background: url(../project/images/animations/loading-circle-bars-grey.gif); width: 16px; height: 16px; margin-top: .75em; }
 
 /* Pages */
@@ -67,7 +67,7 @@
 .form .formPageInactive { visibility: hidden; }
 .form .formPageSuccess {}
 .form .formPageFailure {}
-.form .formFailure { background: url(../project/images/icons/exclamation-dot-red.png) no-repeat .5em 50%; padding: .25em .75em .25em 2em; background-color: #FFDFE0; border: 1px solid #EFC2C4; -moz-border-radius: 5px; -webkit-border-radius: 5px;  }
+.form .formFailure { background: url(../project/images/icons/exclamation-dot-red.png) no-repeat .5em 50%; padding: .25em .75em .25em 2em; background-color: #FFDFE0; border: 1px solid #EFC2C4; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;  }
 
 /* Sections */
 .form .formSection { clear: both; overflow: auto; }
@@ -100,7 +100,7 @@
 .form .formComponentMultipleChoiceTip .tipContent { top: -23px !important; }
 
 /* Components */
-.form .formComponent { padding: .25em .8em .5em .5em; overflow: hidden; margin-bottom: 3px; border: 1px solid transparent; float: left; clear: both; -moz-border-radius: 5px; -webkit-border-radius: 5px; }
+.form .formComponent { padding: .25em .8em .5em .5em; overflow: hidden; margin-bottom: 3px; border: 1px solid transparent; float: left; clear: both; -moz-border-radius: 5px; border-radius: 5px; -webkit-border-radius: 5px; }
 .form .formComponent input { font-family: Arial; font-size: .8em; padding: 3px .35em; background: #EEEEEE url('../project/images/forms/input-background.gif') repeat-x 0 1px scroll; border: 1px solid #AAA; }
 .form .formComponent select { font-family: Arial; font-size: .8em; background: #EEEEEE; border: 1px solid #AAA; }
 .form .formComponent textarea { font-family: Arial; font-size: .8em; padding: 3px .35em; background: url('../project/images/forms/input-background.gif') repeat-x 0 1px scroll #EEEEEE; border: 1px solid #AAA; resize:none;}
