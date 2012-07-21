@@ -85,7 +85,7 @@
 /* Tips */
 .form .formTip { position: absolute; top: 0; left: 0; display: none; z-index: 10003; max-width: 300px; _width: 300px; }
 .form .formTip .tipArrow { position: relative; display: block; margin: 8px 0 0 1px; width: 12px; height: 16px; background: url(../project/images/forms/tip-arrow-left.png) no-repeat; }
-.form .formTip .tipContent { position: relative; top: -22px; left: 13px; background: #333333; zoom: 1; color: #FFF; z-index: 3; padding: .75em 1em .75em .95em; -webkit-border-radius: 5px; -moz-border-radius: 5px; -moz-box-shadow: 2px 2px 8px #444; -webkit-box-shadow: 2px 2px 8px #444; }
+.form .formTip .tipContent { position: relative; top: -22px; left: 13px; background: #333333; zoom: 1; color: #FFF; z-index: 3; padding: .75em 1em .75em .95em; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -moz-box-shadow: 2px 2px 8px #444; -webkit-box-shadow: 2px 2px 8px #444; }
 .form .formTip .tipContent p { color: #FFF; margin: 0; font-size: .8em; }
 .form table .formTip .tipContent p { font-size: 1em; }
 .form table .formTip .tipContent ul { font-size: 1em; }

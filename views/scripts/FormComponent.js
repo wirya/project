@@ -156,7 +156,7 @@ FormComponent = Class.extend({
             $(input).bind('click', function (event) {
                 $(this).trigger('formComponent:changed', self);
                 if($.browser.msie && parseFloat($.browser.version) < 9.0 ){
-                    console.log($(this).parent().find('label'));
+                    //console.log($(this).parent().find('label'));
                     $(this).parent().find('label').toggleClass('checked');
                 }
             });
@@ -483,6 +483,7 @@ FormComponent = Class.extend({
         var self = this;
 
         // Check to see if the tip already exists
+        //console.log(this.tipTarget);
         if(typeof(this.tip) !== 'function') {
             // Create the tip
             var tip = this.tipTarget.simpletip({
