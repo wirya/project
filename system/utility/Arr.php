@@ -195,6 +195,17 @@ class Arr {
     static function is($variable) {
         return is_array($variable);
     }
+    
+    static function make($variable = null) {
+        if($variable == null) {
+            $response = array();
+        }
+        else if(!Arr::is($variable)) {
+            $response = array($variable);
+        }
+        
+        return $response;
+    }
 
     static function isAssociative($array) {
         if (is_array($array)) {
