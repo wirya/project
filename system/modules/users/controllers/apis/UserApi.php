@@ -70,9 +70,9 @@ class UserApi extends Api {
             $userCookieLogin->setUserId(self::$user['id']);
             $userCookieLogin->setKey($rememberMeKey);
             // Set the expiration time for 60 days
-            $userCookieLogin->setTimeExpires(Time::dateTime(Time::nowInSeconds() + (Time::$dayInSeconds * 60)));
+            $userCookieLogin->setTimeExpires(Time::dateTime(Time::now() + (Time::$dayInSeconds * 60)));
             $userCookieLogin->setIpAddedBy(Network::ipV4ToLongInteger($_SERVER['REMOTE_ADDR']));
-            $userCookieLogin->setTimeAdded(Time::dateTime(Time::nowInSeconds()));
+            $userCookieLogin->setTimeAdded(Time::dateTime(Time::now()));
             $userCookieLogin->save();
         }
 
@@ -284,7 +284,7 @@ class UserApi extends Api {
         $passwordSalt = Security::generateBase64Salt();
         $user->setPassword(hash('sha512', $passwordSalt.$passwordSha512));
         $user->setPasswordSalt($passwordSalt);
-        $user->setTimeAdded(Time::dateTime(Time::nowInSeconds()));
+        $user->setTimeAdded(Time::dateTime(Time::now()));
         $user->setIpAddedBy(Network::ipV4ToLongInteger());
         try {
             $user->save(true);
@@ -302,7 +302,7 @@ class UserApi extends Api {
         // TO DO: Set status based on settings for users
         $userEmail->setStatus($status == 'active' ? 'verified' : 'unverified');
         $userEmail->setEmail($email);
-        $userEmail->setTimeAdded(Time::dateTime(Time::nowInSeconds()));
+        $userEmail->setTimeAdded(Time::dateTime(Time::now()));
         $userEmail->setIpAddedBy(Network::ipV4ToLongInteger());
         $userEmail->save(true);
 
@@ -330,7 +330,7 @@ class UserApi extends Api {
         $userEmailVerification->setStatus('available');
         $userEmailVerificationKey = Security::md5($user->getId().String::random(32));
         $userEmailVerification->setKey($userEmailVerificationKey);
-        $userEmailVerification->setTimeAdded(Time::dateTime(Time::nowInSeconds()));
+        $userEmailVerification->setTimeAdded(Time::dateTime(Time::now()));
         $userEmailVerification->setIpAddedBy(Network::ipV4ToLongInteger());
         $userEmailVerification->save();
 

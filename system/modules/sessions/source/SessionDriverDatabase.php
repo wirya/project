@@ -79,7 +79,7 @@ class SessionDriverDatabase extends SessionDriver {
         // Set the session ID
         $session->setSessionId($sessionId);
         $session->setIpAddedBy(Network::ipV4ToLongInteger($_SERVER['REMOTE_ADDR']));
-        $session->setTimeAdded(Time::dateTime(Time::nowInSeconds()));
+        $session->setTimeAdded(Time::dateTime(Time::now()));
 
         // Set the expiration time to the time specified in settings, or to the default of 24 minutes
         $sessionsSettings = Project::getModuleSettings('Sessions');
