@@ -99,7 +99,7 @@ Class Browser {
         } else if (stripos(self::$agent, 'W3C_Validator') !== false) {
             $browser = self::BROWSER_W3CVALIDATOR;
         } else if (stripos(self::$agent, 'slurp') !== false) {
-            $$browser = self::BROWSER_SLURP;
+            $browser = self::BROWSER_SLURP;
         } else if (stripos(self::$agent, 'microsoft internet explorer') !== false) {
             $browser = self::BROWSER_IE;
         } else if (stripos(self::$agent, 'msie') !== false && stripos(self::$agent, 'opera') === false) {
@@ -110,9 +110,9 @@ Class Browser {
         } else if (stripos(self::$agent, 'mspie') !== false || stripos(self::$agent, 'pocket') !== false) {
             $browser = self::BROWSER_POCKET_IE;
         } else if (stripos(self::$agent, 'opera mini') !== false) {
-            $this->_browser_name = self::BROWSER_OPERA_MINI;
+            $browser = self::BROWSER_OPERA_MINI;
         } else if (stripos(self::$agent, 'opera') !== false) {
-            $this->_browser_name = self::BROWSER_OPERA;
+            $browser = self::BROWSER_OPERA;
         } else if (stripos(self::$agent, 'Chrome') !== false) {
             $browser = self::BROWSER_CHROME;
         } else if (stripos(self::$agent, 'safari') === false) {
