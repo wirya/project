@@ -74,7 +74,13 @@ var Dialog = Class.extend({
 
         // Add the footer
         if (this.options.footer !== false) {
-            this.dialog.append($('<div class="dialogFooter">' + this.options.footer + '<span class="closeButton">' + this.options.footerCloseButtonText + '<span></div>'));
+            if(this.options.footer === true) {
+                this.options.footerText = '';    
+            }
+            else {
+                this.options.footerText = this.options.footer;
+            }
+            this.dialog.append($('<div class="dialogFooter">' + this.options.footerText + '<span class="closeButton">' + this.options.footerCloseButtonText + '</span></div>'));
         }
 
         // An event listeners to the close buttons

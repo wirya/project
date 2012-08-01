@@ -1189,7 +1189,6 @@ validateAll: function(){
     var validationPassed = true;
     var index = 0;
     $.each(this.formPages, function(formPageKey, formPage) {
-            
         var passed = formPage.validate();
         //console.log(formPage.id, 'passed', passed);
         if(passed === false) {
