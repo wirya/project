@@ -361,7 +361,6 @@ class HtmlElement {
             else {
                 $ul->append('<li class="previousPage"><a href="'.(str_replace('[offset]', $previousPageFirstItemOffset, $url)).'">Prev</a></li>');
             }
-
         }
 
         // Less than the fifth page

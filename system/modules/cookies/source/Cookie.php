@@ -121,8 +121,16 @@ class Cookie {
                 $cookie[trim($cookieData[0])] = $cookieData[1];
             }
             else {
-                $cookie['key'] = $cookieData[0];
-                $cookie['value'] = $cookieData[1];
+                if(isset($cookieData[0])) {
+                    $cookie['key'] = $cookieData[0];    
+                }
+                
+                if(isset($cookieData[1])) {
+                    $cookie['value'] = $cookieData[1];    
+                }
+                else {
+                    $cookie['value'] = null;
+                }
             }
         }
 

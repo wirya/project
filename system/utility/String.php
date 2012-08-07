@@ -121,7 +121,8 @@ class String {
             return trim($string, $characterList);
         }
         else {
-            return trim($string);
+            $string = trim($string);
+            return $string;
         }
     }
 
@@ -506,6 +507,14 @@ class String {
             $check += ord($string{$i});
         }
         return $check;
+    }
+    
+    static function utf8Encode($string) {
+        return utf8_encode($string);
+    }
+    
+    static function utf8Decode($string) {
+        return utf8_decode($string);
     }
 
     static function addHtmlLinks($string) {

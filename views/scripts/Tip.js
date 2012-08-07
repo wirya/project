@@ -8,12 +8,13 @@ var Tip = Class.extend({
             'destroyOnHide': false,
             'content': false,
             'class': '',
-            'targetCorner': 'bottomMiddle',
+            'targetCorner': 'bottomCenter',
             'tipCorner': 'topLeft',
             'offset' : {
                 'top': 0,
                 'left': 0
-            }
+            },
+            'triangle': true
         }, options || {});
         //console.log(this.options);
         
@@ -28,7 +29,7 @@ var Tip = Class.extend({
         
         // Allow them to create but not show
         //if() {
-            this.show(250);
+            //this.show(250);
         //}
     },
     
@@ -48,10 +49,40 @@ var Tip = Class.extend({
             this.setContent(this.options.content);
         }
         
+        if(this.options.triangle) {
+            //console.log('Making triangle');
+            this.triangle = $('<div />');
+            this.triangle.addClass('triangle');
+            this.triangle.appendTo(this.tip);
+        }
+        
         this.tipWrapper.appendTo($('body'));
         
         if(this.options.ajax !== false) {
             this.loadAjaxContent();
+        }
+        
+        this.addEventListeners();
+    },
+    
+    addEventListeners: function() {
+        //console.log('Adding event listeners.');
+        var self = this;
+        
+        if(this.options.showOn == 'hover') {
+            this.target.hover(
+                function(event) {
+                    self.show();
+                },
+                function(event) {
+                    self.hide();
+                }
+            );
+        }
+        else if(this.options.showOn == 'click') {
+            this.target.bind('click', function() {
+                self.show();
+            });    
         }
     },
     
@@ -73,8 +104,8 @@ var Tip = Class.extend({
     },
     
     show: function() {
-        var self = this;
         //console.log('Showing tip on target: ', this.target);
+        var self = this;
         
         this.updatePosition();
         
@@ -176,18 +207,19 @@ var Tip = Class.extend({
                 
         // Keep the tip in the window by changing the anchor if necessary
         
+        
         switch(this.options.targetCorner) {
-            case 'bottomMiddle':
+            case 'bottomCenter':
                 tipWrapperTop = tipWrapperTop + targetHeight;
                 tipWrapperLeft = tipWrapperLeft + (targetWidth / 2);
                 break;
-            case 'topMiddle':
+            case 'topCenter':
                 tipWrapperLeft = tipWrapperLeft - (targetWidth / 2);
                 break;
             case 'bottomLeft':
                 tipWrapperTop = tipWrapperTop + targetHeight;
                 break;
-            case 'rightMiddle':
+            case 'rightCenter':
                 tipWrapperTop = tipWrapperTop + (targetHeight / 2);
                 tipWrapperLeft = tipWrapperLeft + targetWidth;
                 break;
@@ -197,19 +229,19 @@ var Tip = Class.extend({
         }
         
         // Set the tip position relative to the anchor
-        
         switch(this.options.tipCorner) {
             case 'topLeft':
                 break;
+            case 'leftTop':
+                break;
             case 'topRight':
                 tipWrapperLeft = tipWrapperLeft - tipWrapperWidth;
-                break;         
-            case 'bottomMiddle':
+                break;
+            case 'bottomCenter':
                 tipWrapperTop = tipWrapperTop - tipWrapperHeight;
                 tipWrapperLeft = tipWrapperLeft - (tipWrapperWidth / 2);
-              //  console.log(tipWrapperLeft, tipWrapperTop)
                 break;         
-            case 'leftMiddle':
+            case 'leftCenter':
                 tipWrapperTop = tipWrapperTop - (tipWrapperHeight / 2);
                 break;
                 
@@ -239,7 +271,6 @@ var Tip = Class.extend({
     
     setTarget: function(target) {
         var self = this;
-
             
         this.target = $(target);
         
@@ -248,12 +279,13 @@ var Tip = Class.extend({
         if(this.tipWrapper.is(':visible')) {
             //console.log('Setting target to ', $(target));
             this.hide(0, {
-                onAfter: function() {self.show(250);}
+                onAfter: function() {
+                    self.show(250);
+                }
             });
-        } else {
+        }
+        else {
             this.show();            
         }
-        
-        
     }
 });
