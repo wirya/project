@@ -77,31 +77,33 @@ class Route {
                 }
 
                 // Look for controller names, function names, or specific variables
-                foreach($this->data as $index => $keyValue) {
-                    if($keyValue['value'] == ':controller' && isset($matches[intval($keyValue['key']) - 1])) {
-                        $this->controllerName = String::upperFirstCharacter($matches[intval($keyValue['key']) - 1]);
-                        unset($matches[intval($keyValue['key']) - 1]);
-                    }
-                    else if($keyValue['value'] == ':function' && isset($matches[intval($keyValue['key']) - 1])) {
-                        $this->functionName = String::upperFirstCharacter($matches[intval($keyValue['key']) - 1]);
-                        unset($matches[intval($keyValue['key']) - 1]);
-                    }
-                    else if($keyValue['value'] == ':hash' && isset($matches[intval($keyValue['key']) - 1])) {
-                        $hash = explode('/', $matches[intval($keyValue['key']) - 1]);
-                        foreach($hash as $string) {
-                            if(String::contains(':', $string)) {
-                                $array = explode(':', $string);
-                                $data[$array[0]] = $array[1];    
-                            }
+                //if(Arr::is($this->data)) {
+                    foreach($this->data as $index => $keyValue) {
+                        if($keyValue['value'] == ':controller' && isset($matches[intval($keyValue['key']) - 1])) {
+                            $this->controllerName = String::upperFirstCharacter($matches[intval($keyValue['key']) - 1]);
+                            unset($matches[intval($keyValue['key']) - 1]);
                         }
-                        unset($matches[intval($keyValue['key']) - 1]);
+                        else if($keyValue['value'] == ':function' && isset($matches[intval($keyValue['key']) - 1])) {
+                            $this->functionName = String::upperFirstCharacter($matches[intval($keyValue['key']) - 1]);
+                            unset($matches[intval($keyValue['key']) - 1]);
+                        }
+                        else if($keyValue['value'] == ':hash' && isset($matches[intval($keyValue['key']) - 1])) {
+                            $hash = explode('/', $matches[intval($keyValue['key']) - 1]);
+                            foreach($hash as $string) {
+                                if(String::contains(':', $string)) {
+                                    $array = explode(':', $string);
+                                    $data[$array[0]] = $array[1];    
+                                }
+                            }
+                            unset($matches[intval($keyValue['key']) - 1]);
+                        }
+                        else if(is_int(intval($keyValue['key'])) && isset($matches[intval($keyValue['key']) - 1])) {
+                            $data[$keyValue['value']] = $matches[intval($keyValue['key']) - 1];
+                            unset($matches[intval($keyValue['key']) - 1]);
+                        }
                     }
-                    else if(is_int(intval($keyValue['key'])) && isset($matches[intval($keyValue['key']) - 1])) {
-                        $data[$keyValue['value']] = $matches[intval($keyValue['key']) - 1];
-                        unset($matches[intval($keyValue['key']) - 1]);
-                    }
-                }
-
+                //}
+                
                 // Set the rest of the data
                 $variableCount = 1;
                 foreach($matches as $match) {

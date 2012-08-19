@@ -2,6 +2,14 @@
 
 class Number {
     
+    public static function ceiling($number) {
+        return ceil($number);
+    }
+    
+    public static function floor($number) {
+        return floor($number);
+    }
+    
     public static function random($minimum, $maximum) {
         return rand($minimum, $maximum);
     }
