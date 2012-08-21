@@ -80,7 +80,8 @@ var Tip = Class.extend({
             );
         }
         else if(this.options.showOn == 'click') {
-            this.target.bind('click', function() {
+            //console.log('binding click');
+            this.target.bind('click', function(event) {
                 self.show();
             });    
         }
