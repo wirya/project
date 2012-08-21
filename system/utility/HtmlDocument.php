@@ -35,7 +35,7 @@ class HtmlDocument extends HtmlElement {
             }
 
             // Handle some items for the Project User script
-            if($javaScript == 'project/scripts/User.js') {
+            if(String::startsWith('project/scripts/User.js', $javaScript)) {
                 //echo 'Using the Project user class!'; exit();
                 $this->javaScriptOnReady[] = 'User.loggedIn = '.(UserApi::$user ? 'true' : 'false').';';
                 $this->javaScriptOnReady[] = 'User.authenticationMethod = \''.UserApi::$user['authenticationMethod'].'\';';
