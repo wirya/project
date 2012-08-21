@@ -36,7 +36,7 @@ var Tip = Class.extend({
     create: function() {
         //console.log('Creating tip on target: ', this.target);
         
-        this.tipWrapper = $('<div />');
+        this.tipWrapper = $('<div style="display: none;" />');
         this.tipWrapper.addClass('tipWrapper');
         
         this.tip = $('<div />');
@@ -186,6 +186,9 @@ var Tip = Class.extend({
     },
     
     setContent: function(content) {
+        if(content.show) {
+            content.show();
+        }
         this.tip.empty().append(content);
     },
     
