@@ -205,7 +205,11 @@ class UserApi extends Api {
             $user = array('username' => Project::getAdministratorUsername(), 'id' => null);
         }
         else if(Object::methodExists('getUsername', $user)) {
-            $user = array('username' => $user->getUsername(), 'id' => $user->getId());
+            //print_r($user); echo 'Using object!'; exit();
+            $user = array(
+                'username' => $user->getUsername(),
+                'id' => $user->getId(),
+            );
         }
         else if(isset($user['username'])) {
             if(isset($user['token'])) {
