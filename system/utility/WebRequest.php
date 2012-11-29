@@ -255,7 +255,7 @@ class WebRequest {
         $string = '';
         
         foreach($variables as $key => $value) {
-            $string .= '&'.$key.'='.$value;
+            $string .= '&'.Url::encode($key).'='.Url::encode($value);
         }
         
         $string = String::replace('&', '?', $string, 1);
